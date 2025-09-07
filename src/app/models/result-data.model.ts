@@ -1,8 +1,9 @@
-export interface calculateInvestmentResultData {
+export interface ResultData {
       year: number,
       interest: number,
       valueEndOfYear: number,
       annualInvestment: number,
       totalInterest: number,
-      totalAmountInvested: number
+      totalAmountInvested: number,
+      id: string
 }

@@ -1,4 +1,24 @@
+<!-- <div class="center">
+  <app-header></app-header>
+  <app-user-input (sendUserInput)="onSendUserInput($event)"></app-user-input>
+  @if (results && results.length > 0) {
+    <app-investment-results-table [results]="results"></app-investment-results-table>
+} @else {
+    <p>Please enter some values to calculate your investment growth.</p>
+}
+</div> -->
+
+
 <div class="center">
   <app-header></app-header>
-  <app-user-input></app-user-input>
+  <app-user-input (sendUserInput)="onSendUserInput($event)"></app-user-input>
+
+  <app-investment-results-table
+    *ngIf="results && results.length > 0"
+    [results]="results"
+  ></app-investment-results-table>
+
+  <p *ngIf="!results || results.length === 0">
+    Please enter some values to calculate your investment growth.
+  </p>
 </div>

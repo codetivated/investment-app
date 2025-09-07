@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {UserInput} from '../../models/user-input.model';
 import { EventEmitter, Output } from '@angular/core';
 import { signal } from '@angular/core';
-import { InvestmentResultsService } from '../../services/investment-results.service';
 
 
 @Component({
@@ -13,8 +12,7 @@ import { InvestmentResultsService } from '../../services/investment-results.serv
   styleUrl: './user-input.component.css'
 })
 export class UserInputComponent {
-
-    constructor(private investmentResultsService: InvestmentResultsService) {}
+  @Output() sendUserInput = new EventEmitter<UserInput>();
 
 inputData = {
   initialInvestment: 0,
@@ -48,12 +46,13 @@ inputData = {
       duration: this.duration()!
     };
 
-this.investmentResultsService.calculateInvestmentResults(userInput);
+  console.log('User Input:', userInput);
+    this.sendUserInput.emit(userInput);
+
 
     // this.resetForm();
   }
 
-  // maybe move to a service later
   resetForm() {
     this.initialInvestment.set(null);
     this.annualInvestment.set(null);

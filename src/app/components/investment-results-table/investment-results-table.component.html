@@ -1,0 +1,20 @@
+  <table>
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Total Savings</th>
+        <th>Interest (Year)</th>
+        <th>Total Interest</th>
+        <th>Annual Contribution</th>
+      </tr>
+    </thead>
+<tbody>
+  <tr *ngFor="let result of results">
+    <td>{{ result.year }}</td>
+    <td>{{ result.valueEndOfYear | currency }}</td>
+    <td>{{ result.interest | currency }}</td>
+    <td>{{ result.totalInterest | currency }}</td>
+    <td>{{ result.annualInvestment | currency }}</td>
+  </tr>
+</tbody>
+  </table>
