@@ -25,4 +25,7 @@ onSendUserInput(userInput: UserInput) {
   console.log('Calculated results:', results);
 }
 
+onResetForm() {
+  this.results = [];
+}
 }

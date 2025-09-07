@@ -10,10 +10,10 @@ export class InvestmentResultsService {
   calculateInvestmentResults(userInput: UserInput): ResultData[] {
   const annualData: ResultData[] = [];
 
-  const initial = Number(userInput.initialInvestment);
-  const annual = Number(userInput.annualInvestment);
-  const returnRate = Number(userInput.expectedReturn);
-  const duration = Number(userInput.duration);
+  const initial =userInput.initialInvestment;
+  const annual = userInput.annualInvestment;
+  const returnRate = userInput.expectedReturn;
+  const duration =userInput.duration;
 
   let investmentValue = initial;
 

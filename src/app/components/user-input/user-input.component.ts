@@ -13,6 +13,7 @@ import { signal } from '@angular/core';
 })
 export class UserInputComponent {
   @Output() sendUserInput = new EventEmitter<UserInput>();
+  @Output() resetEvent = new EventEmitter<boolean>();
 
 inputData = {
   initialInvestment: 0,
@@ -40,17 +41,14 @@ inputData = {
     }
 
     const userInput: UserInput = {
-      initialInvestment: this.initialInvestment()!,
-      annualInvestment: this.annualInvestment()!,
-      expectedReturn: this.expectedReturn()!,
-      duration: this.duration()!
+      initialInvestment: parseFloat(this.initialInvestment()!.toString()),
+      annualInvestment: parseFloat(this.annualInvestment()!.toString()),
+      expectedReturn: parseFloat(this.expectedReturn()!.toString()),
+      duration: parseFloat(this.duration()!.toString())
     };
 
   console.log('User Input:', userInput);
     this.sendUserInput.emit(userInput);
-
-
-    // this.resetForm();
   }
 
   resetForm() {
@@ -58,6 +56,7 @@ inputData = {
     this.annualInvestment.set(null);
     this.expectedReturn.set(null);
     this.duration.set(null);
+    this.resetEvent.emit(true);
   }
 
   checkValidInput(): boolean {

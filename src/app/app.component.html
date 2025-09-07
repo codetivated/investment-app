@@ -1,6 +1,6 @@
 <div class="center">
   <app-header></app-header>
-  <app-user-input (sendUserInput)="onSendUserInput($event)"></app-user-input>
+  <app-user-input (sendUserInput)="onSendUserInput($event)" (resetEvent)="onResetForm()"></app-user-input>
 
   <app-investment-results-table
     *ngIf="results && results.length > 0"
