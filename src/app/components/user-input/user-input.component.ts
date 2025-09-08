@@ -15,13 +15,6 @@ export class UserInputComponent {
   @Output() sendUserInput = new EventEmitter<UserInput>();
   @Output() resetEvent = new EventEmitter<boolean>();
 
-inputData = {
-  initialInvestment: 0,
-  annualInvestment: 0,
-  expectedReturn: 0,
-  duration: 0
-};
-
   initialInvestment = signal<number | null>(null);
   annualInvestment = signal<number | null>(null);
   expectedReturn = signal<number | null>(null);
